@@ -22,3 +22,5 @@ jobs:
         mappings: "vapor=>vapor_vapor"
         static_list: "vapor"
         force_update: true
+        clone_style: "ssh"
+        debug: true
