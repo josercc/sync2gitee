@@ -25,3 +25,5 @@ jobs:
         force_update: true
         clone_style: "ssh"
         debug: true
+        src_account_type: "org"
+        dst_account_type: "org"
