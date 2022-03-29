@@ -15,9 +15,10 @@ jobs:
     - name: Mirror the Github repos to Gitee.
       uses: Yikun/hub-mirror-action@master
       with:
-        src: github/vapor/vapor
-        dst: gitee/swift-package-manager-mirror/vapor-vapor
+        src: github/vapor
+        dst: gitee/swift-package-manager-mirror
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
-        mappings: ".github=>github"
+        mappings: "vapor=>vapor_vapor"
+        static_list: "vapor"
         force_update: true
