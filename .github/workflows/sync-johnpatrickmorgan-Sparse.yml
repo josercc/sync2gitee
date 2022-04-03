@@ -1,0 +1,29 @@
+#
+on:
+  push:
+    # delete this item if you don't want to trigger this workflow when modify this repo
+    branches: master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # UTC 17:00 -> CST (China) 1:00, see https://datetime360.com/cn/utc-cst-china-time/
+    - cron: '0 17 * * *'
+name: Mirror johnpatrickmorgan/Sparse to Gitee spm_mirror/Sparse
+jobs:
+  run:
+    name: Sync-GitHub-to-Gitee
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror the Github repos to Gitee.
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/johnpatrickmorgan
+        dst: gitee/spm_mirror
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
+        mappings: "Sparse=>Sparse"
+        static_list: "Sparse"
+        force_update: true
+        clone_style: "ssh"
+        debug: true
+        src_account_type: "user"
+        dst_account_type: "org"
